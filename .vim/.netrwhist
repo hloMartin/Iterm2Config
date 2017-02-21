@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/zhangyang/.config'
+let g:netrw_dirhist_2='/Users/zhangyang/Documents/workspace/gradle_project/build'
+let g:netrw_dirhist_3='/Users/zhangyang/martin/work/tmp/gradleLearn/JavaTest/build'
+let g:netrw_dirhist_4='/Users/zhangyang/AndroidStudioProjects/Scream/build'
+let g:netrw_dirhist_5='/Users/zhangyang/AndroidStudioProjects/Scream/app/build'
+let g:netrw_dirhist_6='/Users/zhangyang/AndroidStudioProjects/Scream/likePinterest'
+let g:netrw_dirhist_7='/Users/zhangyang/AndroidStudioProjects/ScreamOwner/.idea'
+let g:netrw_dirhist_8='/Users/zhangyang/AndroidStudioProjects/Scream/.git'
