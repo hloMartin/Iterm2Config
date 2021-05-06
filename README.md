@@ -1,1 +1,1 @@
-### [vim 相关配置](./vim/README.md)
+### [vim 相关配置](./vim)
