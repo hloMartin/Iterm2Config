@@ -1,93 +1,170 @@
-call plug#begin('~/.vim/plugged')
+" vundle 环境设置
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" 插件列表开始
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/phd'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'kshenoy/vim-signature'
+Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'vim-scripts/vimprj'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'SirVer/ultisnips'
+Plugin 'derekwyatt/vim-protodef'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'lilydjwg/fcitx.vim'
+" 插件列表结束
+call vundle#end()
+filetype plugin indent on
 
-" Make sure you use single quotes
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/vim-easy-align'
+" 定义快捷键的前缀, 即<Leader>
+let mapleader=";"
 
-" Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" 设置状态栏主题风格
+let g:Powerline_colorscheme='solarized256'
 
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" 基于缩进或语法进行代码折叠
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
 
-" Using git URL
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+" 打开语法高亮
+syntax on
 
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+" 使用配色方案
+colorscheme jummidark 
+ 
+" 打开文件类型检测功能
+filetype on
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+" 不同文件类型采用不同缩进
+filetype indent on
+ 
+" 允许使用插件
+filetype plugin on
+filetype plugin indent on
 
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
+" 关闭vi模式
+set nocp
+ 
+" 与mac共享剪贴板
+set clipboard+=unnamed
 
-" Add plugins to &runtimepath
-call plug#end()
+" 取消VI兼容
+set nocompatible
+ 
+" 显示行号
+set nu
 
+" 历史命令保存行数 
+set history=1000
+ 
+" 当文件被外部改变时自动读取
+set autoread 
 
-"onfiguration file for vim
-set modelines=0		" CVE-2007-2438
-
-" Normally we use vim-extensions. If you want true vi-compatibility
-" remove change the following statements
-set nocompatible	" Use Vim defaults instead of 100% vi compatibility
-set backspace=2		" more powerful backspacing
-
-" Don't write backup file if vim is being called by "crontab -e"
-au BufWrite /private/tmp/crontab.* set nowritebackup
-" Don't write backup file if vim is being called by "chpass"
-au BufWrite /private/etc/pw.* set nowritebackup
-
-syntax on  "自动语法高亮
-
-"用浅色高亮当前行
-"autocmd InsertLeave * se nocul
-"autocmd InsertEnter * se cul
-
-set smartindent "智能对齐
-
-set autoindent "自动对齐
-
-set confirm "在处理为保存或只读文件是，弹出确认
-
-set tabstop=4 "tab 键宽为4
-
-"统一缩进为4
-set softtabstop=4 
-set shiftwidth=4
-
-set number "显示行号
-
-set history=100 "设置历史记录数
-
-"搜索逐字符高亮
+" 取消自动备份及产生swp文件
+set nobackup
+set nowb
+set noswapfile
+ 
+" 允许使用鼠标点击定位
+set mouse=a
+" 允许区域选择
+set selection=exclusive
+ 
+" 高亮光标所在行
+set cursorline
+" 取消光标闪烁
+set novisualbell
+ 
+" 总是显示状态行
+set laststatus=2
+" 状态栏显示当前执行的命令
+set showcmd
+ 
+" 标尺功能, 显示当前光标所在行列号
+set ruler
+" 设置命令行高度为2
+set cmdheight=2
+ 
+" 粘贴时保持格式
+" set paste
+" 高亮显示匹配的括号
+set showmatch
+ 
+" 在搜索的时候忽略大小写
+set ignorecase
+ 
+" 高亮被搜索的句子
 set hlsearch
+ 
+" 在搜索时, 输入的词句的逐字符高亮
 set incsearch
+" 继承前一行的缩进方式
+set autoindent
+ 
+" 为c程序提供自动缩进
+set smartindent
+" 使用c样式的缩进
+set cindent
+ 
+" 制表符为4
+set tabstop=4
+" 统一缩进为4
+set softtabstop=4
+set shiftwidth=4
+ 
+" 允许使用退格键
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+" 取消换行
+set nowrap
+ 
+" 在被分割的窗口间显示空白
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+ 
+" 光标移动到buffer的顶部和底部时保持3行距离
+set scrolloff=3
+" 设定默认解码
+set fenc=utf-8
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
+ 
+" 设定编码
+set enc=utf-8
+set fileencodings=ucs-bom,utf-8,chinese
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+ 
+" 自动补全
+filetype plugin indent on
+set completeopt=longest,menu
 
-set showmatch "高亮显示对应的括号
+" 自动补全命令时候使用菜单式匹配列表
+set wildmenu
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complet
 
-set autowrite "切换buffer时，自动保存当前文件
-
-set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
-
-"==================自定义的键映射======================
-
-"括号自动生成
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-"单键<F7>控制syntax on/off。原因是有时候颜色太多会妨碍阅读。
-map <F7> :if exists("syntax_on") <BAR>
-\    syntax off <BAR><CR>
-\  else <BAR>
-\syntax enable <BAR>
-\  endif
-
-" 选中状态下 Ctrl+c 复制
-vmap <C-c> "+y
