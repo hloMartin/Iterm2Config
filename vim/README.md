@@ -6,9 +6,16 @@ brew install vim
 
 ### vim 配置
 
-    .vimrc 配置文件。
+    .vimrc 配置文件。    
+    
 ### vim 插件
 - 安装插件
+
+如果 vim 显示 Unknown function: vundle#begin，则需要先安装 vundle
+```
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
 ```
 安装插件，先找到其在 github.com 的地址，再将配置信息其加入 .vimrc 中的call vundle#begin() 和 call vundle#end() 之间，最后进入 vim 执行：
 
